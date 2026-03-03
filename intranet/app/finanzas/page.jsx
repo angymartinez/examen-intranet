@@ -1,7 +1,24 @@
+"use client"
+
 import Link from "next/link";
-import styles from "../styles/finanzas.css";
+import styles from "../styles/software.module.css";
+import AsyncAwait from "../../components/asyncAwait";
+import PromiseThen from "../../components/promisThen";
+import { useEffect, useState } from "react";
 
 export default function Finanzas() {
+    const [data, setData] = useState(false)
+    useEffect(() => {
+        Promise.all([
+            fetch("https://pokeapi.co/api/v2/pokemon/snorlax").then(res => res.json()),
+            fetch("https://rickandmortyapi.com/api/character/?name=beth").then(res => res.json()),
+            fetch("https://www.swapi.tech/api/people/5").then(res => res.json()),
+        ])
+        .then((info) => {
+            setData(info)
+            console.log(info)
+        });
+    },[]);
     return (
     <div className={styles.container}>
         <h1 className={styles.title}>Finanzas Corporativas</h1>
@@ -13,19 +30,33 @@ export default function Finanzas() {
         </p>
     <div className={styles.grid}>
         <div className={styles.card}>
-            <img src="/img/contabilidad.png" />
-            <h3>📘 Contabilidad</h3>
-            <p>Estados financieros y control contable.</p>
+            <AsyncAwait link="https://pokeapi.co/api/v2/pokemon/meowth" />
         </div>
+
         <div className={styles.card}>
-            <img src="/img/inversiones.png" />
-            <h3>💰 Inversiones</h3>
-            <p>Análisis y evaluación de proyectos financieros.</p>
+            <PromiseThen link="https://pokeapi.co/api/v2/pokemon/pichu"/>
         </div>
+
         <div className={styles.card}>
-            <img src="/img/mercados.png" />
-            <h3>📊 Mercados Financieros</h3>
-            <p>Sistemas financieros y mercado de capitales.</p>
+            {data ? <h2>{data[0].name}</h2>: <img src="/img/loading3.gif" alt="image"/>}
+            {data ? <img src={data[0].sprites.front_default} alt="image" />: <img src="/img/loading3.gif" alt="image"/>}
+            {data ? <p>{data[0].types[0].type.name}</p>: <img src="/img/loading3.gif" alt="image"/>}
+            <h3>Promise .All</h3>
+        </div>
+
+        <div className={styles.card}>
+            {data ? <h2>{data[1].results[0].name}</h2>: <img src="/img/loading4.gif" alt="image"/>}
+            {data ? <img src={data[1].results[0].image} alt="image" />: <img src="/img/loading4.gif" alt="image"/>}
+            {data ? <p>{data[1].results[0].species}</p>: <img src="/img/loading4.gif" alt="image"/>}
+            <h3>Promise .All</h3>
+        </div>
+
+        <div className={styles.card}>
+            {data ? <h2>{data[2].result.properties.name}</h2>: <img src="/img/loading5.gif" alt="image"/>}
+            {data ? <p>{data[2].result.properties.gender}</p>: <img src="/img/loading5.gif" alt="image"/>}
+            {data ? <p>{data[2].result.properties.skin_color}</p>: <img src="/img/loading5.gif" alt="image"/>}
+            {data ? <p>{data[2].result.description}</p>: <img src="/img/loading5.gif" alt="image"/>}
+            <h3>Promise .All</h3>
         </div>
     </div>
     <Link href="/ciencias" className={styles.back}>

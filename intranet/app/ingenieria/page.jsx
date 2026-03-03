@@ -12,11 +12,13 @@ export default function Ingenieria() {
             <h3>🧑‍💻 Ingeniería en Desarrollo de Software</h3>
             <p>Programación, bases de datos y aplicaciones web.</p>
             </Link>
+
             <Link href="innovacion" className={styles.card}>
             <img src="/img/innovacion.png" />
             <h3>💡 Ingeniería en Innovación Digital</h3>
             <p>Creatividad, transformación digital y UX.</p>
             </Link>
+
             <Link href="robotica" className={styles.card}>
             <img src="/img/robotica.png" />
             <h3>🤖 Ingeniería en Robótica</h3>
