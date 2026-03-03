@@ -1,0 +1,92 @@
+/* CONTENEDOR PRINCIPAL */
+.main-container {
+    min-height: 100vh;
+    background: #f4f6f9;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #111, #222);
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* WRAPPER DEL BREADCRUMBS */
+.breadcrumbs-wrapper {
+    max-width: 1200px;
+    margin: 2px auto 0;
+    padding: 0 20px;
+}
+
+/* HERO */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 50px 40px;
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ICONO SUPERIOR */
+.icon-header {
+    margin-bottom: 10px;
+}
+
+/* TEXTO BREADCRUMB INTERNO */
+.breadcrumb {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #6b7280;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* TITULO */
+.card h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #0f172a;
+}
+
+/* DESCRIPCIÓN */
+.description {
+    font-size: 16px;
+    color: #475569;
+    margin-bottom: 30px;
+}
+
+/* BOTÓN */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #0a3d78;
+    color: white;
+    padding: 14px 26px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background: #062f5c;
+    transform: translateY(-2px);
+}
+
+/* ICONO BOTÓN */
+.btn-icon {
+    filter: brightness(0) invert(1);
+}
